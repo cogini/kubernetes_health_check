@@ -26,7 +26,8 @@ ingress. It is useful to temporarily stop serving traffic, e.g. when the
 instance is overloaded or it has transient problems connecting to a back end
 service.
 
-See this blog post for more details: TODO
+See this blog post for more background:
+https://www.cogini.com/blog/kubernetes-health-checks-for-elixir-apps/
 
 Links:
 
@@ -95,13 +96,13 @@ Add a module to your app which provides
 Following is an example heath module:
 
 ```elixir
-defmodule Foo.Health do
+defmodule Example.Health do
   @moduledoc """
   Collect app status for Kubernetes health checks.
   """
-  alias Foo.Repo
+  alias Example.Repo
 
-  @app :foo
+  @app :example
   @repos Application.compile_env(@app, :ecto_repos) || []
 
   @doc """
