@@ -3,7 +3,7 @@
 Health check Plug with Kubernetes semantics.
 
 Kubernetes has well defined semantics for how health checks should behave,
-distinguishing between between startup, liveness, and readiness.
+distinguishing between between startup, liveness, and readiness:
 
 **Liveness** is the core health check. It determines whether the app is alive
 and able to respond to requests. It should be relatively fast, as it is called
@@ -61,13 +61,12 @@ Following is an example Kubernetes deployment yaml configuration:
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `kubernetes_health_check` to your list of dependencies in `mix.exs`:
+Add the package to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:kubernetes_health_check, "~> 0.1.0"}
+    {:kubernetes_health_check, "~> 0.7.0"}
   ]
 end
 ```
@@ -91,9 +90,8 @@ Options:
 * `:liveness_path` - "Path for liveness check, default "<base_path>/liveness"
 * `:readiness_path` - "Path for readiness check, default "<base_path>/readiness"
 
-Add a module to your app which provides
-
-Following is an example heath module:
+Add a module which provides the app-specific health checks.
+Following is an example:
 
 ```elixir
 defmodule Example.Health do
