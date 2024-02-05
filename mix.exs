@@ -51,6 +51,7 @@ defmodule KubernetesHealthCheck.MixProject do
 
   defp deps do
     [
+      {:plug, "~> 1.14"},
       {:plug_cowboy, "~> 2.5", only: [:dev, :test]},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.2", only: [:dev, :test], runtime: false},
