@@ -103,6 +103,11 @@ defmodule Example.Health do
   @app :example
   @repos Application.compile_env(@app, :ecto_repos) || []
 
+  @type check_return ::
+          :ok
+          | {:error, {status_code :: non_neg_integer(), reason :: binary()}}
+          | {:error, reason :: binary()}
+
   @doc """
   Check if the app has finished booting up.
 
@@ -116,10 +121,7 @@ defmodule Example.Health do
   web-server, connected to a DB, connected to external services, and performed
   initial setup tasks such as loading a large cache.
   """
-  @spec startup ::
-          :ok
-          | {:error, {status_code :: non_neg_integer(), reason :: binary()}}
-          | {:error, reason :: binary()}
+  @spec startup :: check_return()
   def startup do
     # Return error if there are available migrations which have not been executed.
     # This supports deployment to AWS ECS using the following strategy:
@@ -150,10 +152,7 @@ defmodule Example.Health do
   This check should be lightweight, only determining if the server is
   responding to requests and can connect to the DB.
   """
-  @spec liveness ::
-          :ok
-          | {:error, {status_code :: non_neg_integer(), reason :: binary()}}
-          | {:error, reason :: binary()}
+  @spec liveness :: check_return()
   def liveness do
     case Ecto.Adapters.SQL.query(Repo, "SELECT 1") do
       {:ok, %{num_rows: 1, rows: [[1]]}} ->
@@ -184,18 +183,12 @@ defmodule Example.Health do
   Similarly, the app might return an error if it is overloaded, shedding
   traffic until it has caught up.
   """
-  @spec readiness ::
-          :ok
-          | {:error, {status_code :: non_neg_integer(), reason :: binary()}}
-          | {:error, reason :: binary()}
+  @spec readiness :: check_return()
   def readiness do
     liveness()
   end
 
-  @spec basic ::
-          :ok
-  # | {:error, {status_code :: non_neg_integer(), reason :: binary()}}
-  # | {:error, reason :: binary()}
+  @spec basic :: check_return()
   def basic do
     :ok
   end
