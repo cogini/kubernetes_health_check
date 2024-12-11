@@ -37,7 +37,7 @@ defmodule KubernetesHealthCheck.Plug do
 
   ```
   plug KubernetesHealthCheck.Plug,
-    mod: KubernetesHealthCheck.Health,
+    mod: Example.Health,
     base_path: "/healthz"
   ```
 
