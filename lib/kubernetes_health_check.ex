@@ -30,7 +30,7 @@ defmodule KubernetesHealthCheck do
 
   This returns app status for the Kubernetes `startupProbe`.
   Kubernetes checks this probe repeatedly until it returns a successful
-  response. After that Kubernetes switches to executing the other two probes.
+  response. After that, Kubernetes switches to executing the other two probes.
   If the app fails to successfully start before the `failureThreshold` time is
   reached, Kubernetes kills the container and restarts it.
 
