@@ -1,56 +1,55 @@
 defmodule KubernetesHealthCheck.Plug do
-  @moduledoc false
+  @moduledoc """
+  Plug to return health check results.
+
+  It calls the app module which does the actual checking.
+
+  Following is an example Kubernetes deployment yaml configuration:
+
+  ```yaml
+  startupProbe:
+    httpGet:
+      path: /healthz/startup
+      port: http
+    periodSeconds: 3
+    failureThreshold: 5
+
+  livenessProbe:
+    httpGet:
+      path: /healthz/liveness
+      port: http
+    periodSeconds: 10
+    failureThreshold: 6
+
+  readinessProbe:
+    httpGet:
+      path: /healthz/readiness
+      port: http
+    periodSeconds: 10
+    failureThreshold: 1
+  ```
+
+  ## Installation
+
+  Add the plug to your endpoint or router.
+  It whould normally be placed above the logger to avoid noise in your logs
+  from health checks.
+
+  ```
+  plug KubernetesHealthCheck.Plug,
+    mod: KubernetesHealthCheck.Health,
+    base_path: "/healthz"
+  ```
+
+  ### Init Options
+
+  - `:mod` - Callback module which implements the health checks for the app, default `KubernetesHealthCheck`
+  - `:base_path` - "Base request_path for health checks, default "/healthz"
+  - `:startup_path` - "Path for startup check, default "<base_path>/startup"
+  - `:liveness_path` - "Path for liveness check, default "<base_path>/liveness"
+  - `:readiness_path` - "Path for readiness check, default "<base_path>/readiness"
+  """
   if Code.ensure_loaded?(Plug) do
-    @moduledoc """
-    Plug to return health check results.
-
-    It calls the app module which does the actual checking.
-
-    Following is an example Kubernetes deployment yaml configuration:
-
-    ```yaml
-    startupProbe:
-      httpGet:
-        path: /healthz/startup
-        port: http
-      periodSeconds: 3
-      failureThreshold: 5
-
-    livenessProbe:
-      httpGet:
-        path: /healthz/liveness
-        port: http
-      periodSeconds: 10
-      failureThreshold: 6
-
-    readinessProbe:
-      httpGet:
-        path: /healthz/readiness
-        port: http
-      periodSeconds: 10
-      failureThreshold: 1
-    ```
-
-    ## Installation
-
-    Add the plug to your endpoint or router.
-    It whould normally be placed above the logger to avoid noise in your logs
-    from health checks.
-
-    ```
-    plug KubernetesHealthCheck.Plug,
-      mod: KubernetesHealthCheck.Health,
-      base_path: "/healthz"
-    ```
-
-    ### Init Options
-
-    - `:mod` - Callback module which implements the health checks for the app, default `KubernetesHealthCheck`
-    - `:base_path` - "Base request_path for health checks, default "/healthz"
-    - `:startup_path` - "Path for startup check, default "<base_path>/startup"
-    - `:liveness_path` - "Path for liveness check, default "<base_path>/liveness"
-    - `:readiness_path` - "Path for readiness check, default "<base_path>/readiness"
-    """
     import Plug.Conn
 
     def init(opts) do
