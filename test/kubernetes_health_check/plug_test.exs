@@ -3,6 +3,7 @@ defmodule KubernetesHealthCheck.PlugTest do
   use Plug.Test
 
   defmodule HealthErrorMessage do
+    @moduledoc false
     def basic do
       {:error, :basic}
     end
@@ -21,6 +22,7 @@ defmodule KubernetesHealthCheck.PlugTest do
   end
 
   defmodule HealthErrorCode do
+    @moduledoc false
     def basic do
       {:error, {500, :basic}}
     end
@@ -39,10 +41,11 @@ defmodule KubernetesHealthCheck.PlugTest do
   end
 
   defmodule DefaultsPlug do
+    @moduledoc false
     use Plug.Builder
 
-    plug KubernetesHealthCheck.Plug
-    plug :passthrough
+    plug(KubernetesHealthCheck.Plug)
+    plug(:passthrough)
 
     defp passthrough(conn, _) do
       Plug.Conn.send_resp(conn, 200, "Passthrough")
@@ -50,11 +53,12 @@ defmodule KubernetesHealthCheck.PlugTest do
   end
 
   defmodule PathPlug do
+    @moduledoc false
     use Plug.Builder
 
-    plug KubernetesHealthCheck.Plug, base_path: "/foo"
+    plug(KubernetesHealthCheck.Plug, base_path: "/foo")
 
-    plug :passthrough
+    plug(:passthrough)
 
     defp passthrough(conn, _) do
       Plug.Conn.send_resp(conn, 200, "Passthrough")
@@ -62,16 +66,18 @@ defmodule KubernetesHealthCheck.PlugTest do
   end
 
   defmodule CustomPathPlug do
+    @moduledoc false
     use Plug.Builder
 
-    plug KubernetesHealthCheck.Plug,
+    plug(KubernetesHealthCheck.Plug,
       mod: HealthErrorMessage,
       base_path: "/health",
       startup_path: "/startup",
       liveness_path: "/liveness",
       readiness_path: "/readiness"
+    )
 
-    plug :passthrough
+    plug(:passthrough)
 
     defp passthrough(conn, _) do
       Plug.Conn.send_resp(conn, 200, "Passthrough")
@@ -79,11 +85,12 @@ defmodule KubernetesHealthCheck.PlugTest do
   end
 
   defmodule ErrorMessagePlug do
+    @moduledoc false
     use Plug.Builder
 
-    plug KubernetesHealthCheck.Plug, mod: HealthErrorMessage
+    plug(KubernetesHealthCheck.Plug, mod: HealthErrorMessage)
 
-    plug :passthrough
+    plug(:passthrough)
 
     defp passthrough(conn, _) do
       Plug.Conn.send_resp(conn, 200, "Passthrough")
@@ -91,11 +98,12 @@ defmodule KubernetesHealthCheck.PlugTest do
   end
 
   defmodule ErrorCodePlug do
+    @moduledoc false
     use Plug.Builder
 
-    plug KubernetesHealthCheck.Plug, mod: HealthErrorCode
+    plug(KubernetesHealthCheck.Plug, mod: HealthErrorCode)
 
-    plug :passthrough
+    plug(:passthrough)
 
     defp passthrough(conn, _) do
       Plug.Conn.send_resp(conn, 200, "Passthrough")

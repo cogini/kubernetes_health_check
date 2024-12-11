@@ -57,8 +57,8 @@ defmodule KubernetesHealthCheck.MixProject do
       {:ex_doc, "~> 0.35.0", only: :dev, runtime: false},
       {:excoveralls, "~> 0.18.0", only: [:dev, :test], runtime: false},
       {:junit_formatter, "~> 3.3", only: [:dev, :test], runtime: false},
-      {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false}
-      # {:styler, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
+      {:styler, "~> 0.10.0", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -73,8 +73,7 @@ defmodule KubernetesHealthCheck.MixProject do
       licenses: ["Apache-2.0"],
       links: %{
         "GitHub" => @github,
-        "Changelog" =>
-          "#{@github}/blob/#{@version}/CHANGELOG.md##{String.replace(@version, ".", "")}"
+        "Changelog" => "#{@github}/blob/#{@version}/CHANGELOG.md##{String.replace(@version, ".", "")}"
       }
     ]
   end

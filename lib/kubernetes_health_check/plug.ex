@@ -1,4 +1,5 @@
 defmodule KubernetesHealthCheck.Plug do
+  @moduledoc false
   if Code.ensure_loaded?(Plug) do
     @moduledoc """
     Plug to return health check results.
@@ -76,7 +77,8 @@ defmodule KubernetesHealthCheck.Plug do
           |> halt()
 
         {:error, {status_code, reason}} when is_integer(status_code) ->
-          send_resp(conn, status_code, inspect(reason))
+          conn
+          |> send_resp(status_code, inspect(reason))
           |> halt()
 
         {:error, reason} ->
@@ -95,7 +97,8 @@ defmodule KubernetesHealthCheck.Plug do
           |> halt()
 
         {:error, {status_code, reason}} when is_integer(status_code) ->
-          send_resp(conn, status_code, inspect(reason))
+          conn
+          |> send_resp(status_code, inspect(reason))
           |> halt()
 
         {:error, reason} ->
@@ -114,7 +117,8 @@ defmodule KubernetesHealthCheck.Plug do
           |> halt()
 
         {:error, {status_code, reason}} when is_integer(status_code) ->
-          send_resp(conn, status_code, inspect(reason))
+          conn
+          |> send_resp(status_code, inspect(reason))
           |> halt()
 
         {:error, reason} ->
@@ -133,7 +137,8 @@ defmodule KubernetesHealthCheck.Plug do
           |> halt()
 
         {:error, {status_code, reason}} when is_integer(status_code) ->
-          send_resp(conn, status_code, inspect(reason))
+          conn
+          |> send_resp(status_code, inspect(reason))
           |> halt()
 
         {:error, reason} ->
