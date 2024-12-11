@@ -44,10 +44,10 @@ defmodule KubernetesHealthCheck.Plug do
   ### Init Options
 
   - `:mod` - Callback module which implements the health checks for the app, default `KubernetesHealthCheck`
-  - `:base_path` - "Base request_path for health checks, default "/healthz"
-  - `:startup_path` - "Path for startup check, default "<base_path>/startup"
-  - `:liveness_path` - "Path for liveness check, default "<base_path>/liveness"
-  - `:readiness_path` - "Path for readiness check, default "<base_path>/readiness"
+  - `:base_path` - Base request_path for health checks, default `/healthz`
+  - `:startup_path` - Path for startup check, default `<base_path>/startup`
+  - `:liveness_path` - Path for liveness check, default `<base_path>/liveness`
+  - `:readiness_path` - Path for readiness check, default `<base_path>/readiness`
   """
   if Code.ensure_loaded?(Plug) do
     import Plug.Conn
