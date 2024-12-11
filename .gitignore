@@ -24,3 +24,5 @@ kubernetes_health_check-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+.DS_Store
