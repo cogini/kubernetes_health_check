@@ -2,7 +2,7 @@ defmodule KubernetesHealthCheck.MixProject do
   use Mix.Project
 
   @github "https://github.com/cogini/kubernetes_health_check"
-  @version "0.7.0"
+  @version "0.7.1"
 
   def project do
     [
