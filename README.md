@@ -1,3 +1,11 @@
+![test workflow](https://github.com/cogini/kubernetes_health_check/actions/workflows/test.yml/badge.svg)
+[![Module Version](https://img.shields.io/hexpm/v/kubernetes_health_check.svg)](https://hex.pm/packages/kubernetes_health_check)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/kubernetes_health_check)
+[![Total Download](https://img.shields.io/hexpm/dt/kubernetes_health_check.svg)](https://hex.pm/packages/kubernetes_health_check)
+[![License](https://img.shields.io/hexpm/l/kubernetes_health_check.svg)](https://github.com/cogini/kubernetes_health_check/blob/master/LICENSE.md)
+[![Last Updated](https://img.shields.io/github/last-commit/cogini/kubernetes_health_check/main)](https://github.com/cogini/kubernetes_health_check/commits/main)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 # kubernetes_health_check
 
 Health check Plug with Kubernetes semantics.
