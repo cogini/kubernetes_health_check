@@ -1,5 +1,6 @@
 defmodule KubernetesHealthCheck.PlugTest do
   use ExUnit.Case
+
   import Plug.Test
 
   defmodule HealthErrorMessage do
