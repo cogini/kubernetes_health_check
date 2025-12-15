@@ -1,4 +1,4 @@
-# Contributing to Uinta
+# Contributing
 
 Please take a moment to review this document in order to make the contribution
 process easy and effective for everyone involved!
@@ -13,7 +13,7 @@ Use the issues tracker for:
 
 We do our best to keep the issue tracker tidy and organized, making it useful
 for everyone. For example, we classify open issues per perceived difficulty,
-making it easier for developers to [contribute to Uinta](#pull-requests).
+making it easier for developers to [contribute](#pull-requests).
 
 ## Bug reports
 
@@ -33,7 +33,7 @@ Guidelines for bug reports:
    case.
 
 Please try to be as detailed as possible in your report. Include information about
-your Operating System, as well as your Erlang, Elixir and Uinta versions. Please provide steps to
+your Operating System, as well as your Erlang, Elixir and library versions. Please provide steps to
 reproduce the issue as well as the outcome you were expecting! All these details
 will help developers to fix any potential bugs.
 
