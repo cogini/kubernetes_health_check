@@ -25,4 +25,9 @@ kubernetes_health_check-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
+# Environment files
+.env
+.envrc
+
+# macOS junk
 .DS_Store
