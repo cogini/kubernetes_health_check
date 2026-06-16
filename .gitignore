@@ -10,6 +10,9 @@
 # Where third-party dependencies like ExDoc output generated docs.
 /doc/
 
+# Temporary files, for example, from tests.
+/tmp/
+
 # Ignore .fetch files in case you like to edit your project deps locally.
 /.fetch
 
@@ -21,9 +24,6 @@ erl_crash.dump
 
 # Ignore package tarball (built via "mix hex.build").
 kubernetes_health_check-*.tar
-
-# Temporary files, for example, from tests.
-/tmp/
 
 # Environment files
 .env
