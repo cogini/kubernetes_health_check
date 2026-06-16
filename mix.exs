@@ -2,7 +2,7 @@ defmodule KubernetesHealthCheck.MixProject do
   use Mix.Project
 
   @github "https://github.com/cogini/kubernetes_health_check"
-  @version "0.7.2"
+  @version "0.7.3"
 
   def project do
     [
@@ -14,10 +14,6 @@ defmodule KubernetesHealthCheck.MixProject do
       aliases: aliases(),
       dialyzer: [
         plt_add_apps: [:public_key, :mix, :ex_unit]
-        # plt_add_deps: true,
-        # flags: ["-Werror_handling", "-Wrace_conditions"],
-        # flags: ["-Wunmatched_returns", :error_handling, :race_conditions, :underspecs],
-        # ignore_warnings: "dialyzer.ignore-warnings"
       ],
       test_coverage: [tool: ExCoveralls],
       description: description(),
@@ -106,8 +102,7 @@ defmodule KubernetesHealthCheck.MixProject do
       quality: [
         "test",
         "format --check-formatted",
-        # "credo",
-        "credo --mute-exit-status",
+        "credo",
         # mix deps.clean --unlock --unused
         "deps.unlock --check-unused",
         # mix deps.update
