@@ -59,11 +59,11 @@ defmodule KubernetesHealthCheck.MixProject do
       {:plug_cowboy, "~> 2.5", only: [:dev, :test]},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.39.0", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.40.0", only: :dev, runtime: false},
       {:excoveralls, "~> 0.18.0", only: [:dev, :test], runtime: false},
       {:junit_formatter, "~> 3.3", only: [:dev, :test], runtime: false},
       {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
-      {:styler, "~> 1.10.0", only: [:dev, :test], runtime: false}
+      {:styler, "~> 1.11.0", only: [:dev, :test], runtime: false}
     ]
   end
 
