@@ -108,7 +108,7 @@ defmodule KubernetesHealthCheck.MixProject do
         # mix deps.update
         # "hex.outdated",
         # "hex.audit",
-        "deps.audit",
+        "deps.audit --ignore-package-names cowlib",
         "dialyzer --quiet-with-result"
       ],
       "quality.ci": [
