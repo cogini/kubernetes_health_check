@@ -191,6 +191,7 @@ defmodule Example.Health do
     liveness()
   end
 
+  @doc "This is a minimal check that confirms that code is loaded."
   @spec basic :: check_return()
   def basic do
     :ok
