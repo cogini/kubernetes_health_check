@@ -92,7 +92,7 @@ defmodule KubernetesHealthCheck.MixProject do
         "CODE_OF_CONDUCT.md": [title: "Code of Conduct"]
       ],
       # api_reference: false,
-      source_url_pattern: "#{@github}/blob/master/%{path}#L%{line}"
+      source_url_pattern: "#{@github}/blob/main/%{path}#L%{line}"
     ]
   end
 
