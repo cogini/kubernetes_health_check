@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.7.4] - 2026-07-02
 ### Changed
 - Update libs
+- Update plug to 1.20.2
+- Stop supporting Elixir 1.14
 
 ## [0.7.3] - 2026-06-16
 ### Changed
