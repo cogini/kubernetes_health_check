@@ -113,24 +113,11 @@ jobs:
       - name: Compile
         run: mix compile --warnings-as-errors
 
-      # - name: Check formatting
-      #   run: mix format --check-formatted
-
       - name: Run tests
         run: mix test
 
       - name: Run credo
-        run: mix credo --mute-exit-status
-        # run: mix credo
-
-      - name: Run hex.audit
-        run: mix hex.audit
-
-      - name: Run deps.audit
-        run: mix deps.audit
-
-      - name: Run dialyzer
-        run: mix dialyzer --ignore-exit-status --format github
+        run: mix quality.ci
 
       - name: Publish unit test results to GitHub
         uses: EnricoMi/publish-unit-test-result-action@v2

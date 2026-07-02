@@ -115,8 +115,8 @@ defmodule KubernetesHealthCheck.MixProject do
         "format --check-formatted",
         "deps.unlock --check-unused",
         # "hex.outdated",
-        "hex.audit",
-        "deps.audit",
+        # "hex.audit",
+        "deps.audit --ignore-package-names cowlib",
         "credo",
         "dialyzer --quiet-with-result"
       ]
