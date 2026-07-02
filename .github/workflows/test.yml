@@ -16,14 +16,14 @@ jobs:
       fail-fast: false
       matrix:
         otp: ['24', '25', '26', '27', '28', '29']
-        elixir: ['1.14.5', '1.15.7', '1.16.3', '1.17.3', '1.18.4', '1.19.5', '1.20.1']
+        elixir: ['1.15.7', '1.16.3', '1.17.3', '1.18.4', '1.19.5', '1.20.2']
         # https://hexdocs.pm/elixir/compatibility-and-deprecations.html
         exclude:
-          - elixir: '1.20.1'
+          - elixir: '1.20.2'
             otp: '26'
-          - elixir: '1.20.1'
+          - elixir: '1.20.2'
             otp: '25'
-          - elixir: '1.20.1'
+          - elixir: '1.20.2'
             otp: '24'
 
           - elixir: '1.19.5'
